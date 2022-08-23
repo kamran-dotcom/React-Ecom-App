@@ -77,7 +77,7 @@ const Cart = () =>{
             {
                 swal('Success',res.data.message,'success');
                 thisClicked.closest("tr").remove();
-
+                
             }
         });
     }
@@ -116,8 +116,8 @@ const Cart = () =>{
                                         <tr key={idx}>
                                             <td width="10%"><img src={`http://127.0.0.1:8000/${items.product.image}`} alt={items.product.name} width="50px" height="50px"/></td>
                                             <td>{items.product.name}</td>
-                                            <td width="15%" className="text-center">{items.product.selling_price}</td>
-                                            <td width="15%">
+                                            <td width="10%" className="text-center">{items.product.selling_price}</td>
+                                            <td width="20%">
                                                 <div className="input-group">
                                                     <button className="input-group-text" onClick={()=>handleDecrement(items.id)}>-</button>
                                                     <div className="form-control text-center">{items.product_qty}</div>
@@ -125,12 +125,14 @@ const Cart = () =>{
                                                 </div>
                                             </td>
                                             {/* <td width="15%" className="text-center">{items.product_qty*items.product.selling_price}</td> */}
-                                            <td width="10%"><button className="btn btn-danger btn-sm" onClick={(e)=>removeProduct(e,items.id)}>Remove</button></td>
+                                            <td width="10%">
+                                                <button className="btn btn-danger btn-sm" onClick={(e)=>removeProduct(e,items.id)}>
+                                                    <i className="fa fa-trash" aria-hidden="true"></i>
+                                                </button>
+                                            </td>
                                         </tr>
                                     )
                                 })
-
-                                
                             }
                         </tbody>
                         

@@ -70,7 +70,7 @@ const Sidebar = () =>{
                         </div>
                     </nav>
                 </div> */}
-                <div className="sb-sidenav-menu-heading">Addons</div>
+                {/* <div className="sb-sidenav-menu-heading">Addons</div>
                 <Link className="nav-link" to="charts.html">
                     <div className="sb-nav-link-icon"><i className="fas fa-chart-area"></i></div>
                     Charts
@@ -78,7 +78,7 @@ const Sidebar = () =>{
                 <Link className="nav-link" to="tables.html">
                     <div className="sb-nav-link-icon"><i className="fas fa-table"></i></div>
                     Tables
-                </Link>
+                </Link> */}
             </div>
         </div>
         <div className="sb-sidenav-footer">

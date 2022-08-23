@@ -15,10 +15,10 @@ const Navbar = () =>{
         auth_buttons = (
             <ul className="navbar-nav ms-auto">
                 <li className="nav-item active">
-                    <Link className="nav-link" to="/register">Register <span className="sr-only">(current)</span></Link>
+                    <Link className="nav-link text-white" to="/register">Register <span className="sr-only">(current)</span></Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link" to="/login">Login</Link>
+                    <Link className="nav-link text-white" to="/login">Login</Link>
                 </li>
             </ul>
         );
@@ -28,8 +28,9 @@ const Navbar = () =>{
         auth_buttons = (
             // <ul className="navbar-nav ms-auto">
                 <>
-                <li className="nav-item active"><Link to="/cart" className="nav-link">Cart</Link></li>
-                <li className="nav-item active"><Link to="/admin/dashboard" className="nav-link">Dashboard</Link></li>
+                <li className="nav-item active"><Link to="/cart" className="nav-link text-white">Cart</Link></li>
+                <li className="nav-item active"><Link to="/wishlist" className="nav-link text-white">Wishlist</Link></li>
+                <li className="nav-item active"><Link to="/admin/dashboard" className="nav-link text-white">Dashboard</Link></li>
                 <li className="nav-item">
                     <button className="btn btn-sm btn-warning" onClick={(e)=>submitLogout(e)}>Logout</button>
                 </li></>
@@ -54,7 +55,7 @@ const Navbar = () =>{
     <>
         <nav className="navbar navbar-expand-lg navbar-light bg-primary shadow stickey-top">
             <div className="container">
-                <Link className="navbar-brand" to="/">Navbar</Link>
+                <Link className="navbar-brand text-white" to="/">Ecom App</Link>
                 
 
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
@@ -63,10 +64,10 @@ const Navbar = () =>{
                             <Link className="nav-link" to="/cart">Cart</Link>
                         </li> */}
                         <li className="nav-item active">
-                            <Link className="nav-link" to="/about-us">About Us<span className="sr-only">(current)</span></Link>
+                            <Link className="nav-link text-white" to="/about-us">About Us<span className="sr-only">(current)</span></Link>
                         </li>
                         <li className="nav-item active">
-                            <Link className="nav-link" to="/contact-us">Contact Us</Link>
+                            <Link className="nav-link text-white" to="/contact-us">Contact Us</Link>
                         </li>
                         {auth_buttons}
                     </ul>

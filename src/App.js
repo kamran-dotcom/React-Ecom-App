@@ -21,6 +21,8 @@ import SingleProduct from "./components/frontend/SingleProduct";
 import Cart from "./components/frontend/Cart";
 import Checkout from "./components/frontend/Checkout";
 import Order from "./components/admin/orders/Order";
+import Wishlist from "./components/frontend/Wishlist";
+import Thankyou from "./components/frontend/Thankyou";
 
 
 axios.defaults.baseURL = "http://127.0.0.1:8000/";
@@ -49,6 +51,8 @@ function App() {
           <Route path="/single-product/:slug" element={<SingleProduct/>}/>
           <Route path="/cart" element={<Cart/>}/>
           <Route path="/checkout" element={<Checkout/>}/>
+          <Route path="/wishlist" element={<Wishlist/>}/>
+          <Route path="/thank-you" element={<Thankyou/>}/>
      
         </Route>
 
@@ -62,6 +66,7 @@ function App() {
           <Route path="/admin/view-product" name="ViewProduct" render={(props)=> <ViewProduct {...props}/>} element={<ViewProduct/>}></Route>
           <Route path="/admin/edit-product/:id" name="EditProduct" render={(props)=> <EditProduct {...props}/>} element={<EditProduct/>}></Route>
           <Route path="/admin/order" name="Order" render={(props)=> <Order {...props}/>} element={<Order/>}></Route>
+          {/* <Route path="/admin/wishlist" name="Wishlist" render={(props)=><Wishlist {...props}/>} element={<Wishlist/>}></Route> */}
         </Route>
         {/* <Route path="/admin/edit-category/:id" name="EditCategory" render={(props)=> <EditCategory {...props}/>} element={<EditCategory/>}></Route> */}
         {/* <Route path="/admin/add-product" name="AddProducts" render={(props)=> <AddProducts {...props}/>} element={<AddProducts/>}></Route> */}

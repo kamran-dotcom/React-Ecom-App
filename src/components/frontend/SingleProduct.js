@@ -19,7 +19,7 @@ const SingleProduct = () =>{
                 setLoading(false);
             }
         });
-    },[]);
+    },[slug]);
 
     // Increment decrement hooks -start
     const incrementQty = () =>{
@@ -49,7 +49,7 @@ const SingleProduct = () =>{
     {
         var stack = 
         <div>
-            <label className="btn btn-success btn-sm px-4 mt-4">In Stock</label>
+            <label className="btn btn-success btn-sm px-4 mt-4">{product.qty} products In Stock</label>
             <div className="row">
                 <div className="col-md-3 mt-3">
 
@@ -64,9 +64,18 @@ const SingleProduct = () =>{
                         </div>
                     </div>
                 </div>
-                <div className="col-md-3 mt-3">
+                {/* <div className="col-md-3 mt-3">
+                    <button className="btn btn-sm btn-primary" onClick={(e)=>addToCart(e)}>ADD to Cart</button>
+                </div> */}
+            </div>
+            <div className="row">
+            <div className="col-md-3 mt-3">
                     <button className="btn btn-sm btn-primary" onClick={(e)=>addToCart(e)}>ADD to Cart</button>
                 </div>
+                <div className="col-md-3 mt-3">
+                    <button className="btn btn-sm btn-info" onClick={(e)=>addToWishlist(e)}>Add Wishlist</button>
+                </div>
+
             </div>
         </div>
     }
@@ -107,6 +116,33 @@ const SingleProduct = () =>{
         });
 
     }
+
+    // add to wishlist
+    const addToWishlist = (e)=>{
+        e.preventDefault();
+        let wish_data ={
+            'product_id':product.id,
+            'product_qty':product.qty
+        }
+
+        axios.get('/sanctum/csrf-cookie').then(response =>{
+            axios.post(`/api/add-to-wishlist`,wish_data).then(res=>{
+                if(res.data.status === 201)
+                {
+                    swal("Success",res.data.message,'success');
+                }
+                else if(res.data.status === 409)
+                {
+                    swal("Warning",res.data.message,'warning');
+                }
+                else if(res.data.status === 401)
+                {
+                    swal("Error",res.data.message,'error');
+
+                }
+            });
+        });
+    }
    
     return (
     <>
@@ -125,7 +161,7 @@ const SingleProduct = () =>{
                     <p>{product.description}</p>
                     <h4 className="mb-1">
                         Rs. {product?.selling_price}
-                        <s className="ms-2">old price</s>
+                        <s className="ms-2">Rs. {product?.original_price}</s>
                     </h4>
                     {
                         stack
